@@ -2,6 +2,10 @@ use std::fs::Metadata;
 
 trait GetInfo {
     fn get_info(&self) -> String;
+
+    fn hide_info(&self) {
+        println!("You cant read this info!");
+    }
 }
 
 struct Message {
@@ -32,11 +36,13 @@ fn main() {
         author: "Mega".to_string(),
         text: "Hello guys , welcome my git repository".to_string(),
     };
-    let post = Post{
+    let post = Post {
         author: "Michel".to_string(),
         contents: "Heyyy yooo welcome my rust learning git repository".to_string(),
         likes: 4,
     };
-    println!("{}",message.get_info());
-    println!("{}",post.get_info());
+    println!("{}", message.get_info());
+    println!("{}", post.get_info());
+
+    post.hide_info();
 }
